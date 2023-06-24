@@ -1,0 +1,264 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-md navbar-dark">
+    <div class="container-fluid">
+      <a href="{{ route('admin') }}" class="navbar-brand">
+        <span class="font-weight-bold">Routine Management System</span>
+      </a>
+
+      <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse order-3" id="navbarCollapse">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+
+        <li class="nav-item">
+            <a href="{{ url("/admin") }}" class="nav-link"> <i class="fas fa-home"></i> </a>
+        </li>
+        <li class="nav-item dropdown">
+            <a id="profile" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">{{ __('Profile') }}</a>
+            <ul aria-labelledby="application" class="dropdown-menu border-0 shadow">
+              <li class="dropdown-submenu dropdown-hover">
+                <a  href="{{ route('users.show', Auth::user()->id) }}" class="dropdown-item">{{ __('Profile') }}</a>
+              </li>
+              <li class="dropdown-submenu dropdown-hover">
+                <a href="{{ route('logout') }}" class="nav-link">Logout</a>
+            </li>
+            </ul>
+        </li>
+        @if ((Auth::user()->role) == 'superadmin' || (Auth::user()->role) == 'admin')
+
+
+          <li class="nav-item dropdown">
+            <a id="application" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">{{ __('Application Settings') }}</a>
+            <ul aria-labelledby="application" class="dropdown-menu border-0 shadow">
+              <!--  Department -->
+              <li class="dropdown-submenu dropdown-hover">
+                <a id="departments" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">{{ __('Department') }}</a>
+                <ul aria-labelledby="departments" class="dropdown-menu border-0 shadow">
+                    <li class="nav-item"><a class="nav-link" href="{{ route('departments.index') }}">View All</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('departments.create') }}">Add New</a>
+                    </li>
+                </ul>
+              </li>
+              <!-- End Department -->
+
+              <!--  shifts -->
+              {{-- <li class="dropdown-submenu dropdown-hover">
+                <a id="shifts" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">{{ __('Shift') }}</a>
+                <ul aria-labelledby="shifts" class="dropdown-menu border-0 shadow">
+                    <li class="nav-item"><a class="nav-link" href="{{ route('shifts.index') }}">View All</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('shifts.create') }}">Add New</a>
+                    </li>
+                </ul>
+              </li> --}}
+              <!-- End shifts -->
+
+               <!--  courses -->
+               <li class="dropdown-submenu dropdown-hover">
+                <a id="courses" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">{{ __('Courses') }}</a>
+                <ul aria-labelledby="courses" class="dropdown-menu border-0 shadow">
+                    <li class="nav-item"><a class="nav-link" href="{{ route('courses.index') }}">View All</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('courses.create') }}">Add New</a>
+                    </li>
+                </ul>
+              </li>
+              <!-- End courses -->
+
+              <!--  rooms -->
+              <li class="dropdown-submenu dropdown-hover">
+                <a id="rooms" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">{{ __('Rooms') }}</a>
+                <ul aria-labelledby="rooms" class="dropdown-menu border-0 shadow">
+                    <li class="nav-item"><a class="nav-link" href="{{ route('rooms.index') }}">View All</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('rooms.create') }}">Add New</a>
+                    </li>
+                </ul>
+              </li>
+              <!-- End rooms -->
+
+               <!--  batches -->
+               <li class="dropdown-submenu dropdown-hover">
+                <a id="batches" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">{{ __('Batch') }}</a>
+                <ul aria-labelledby="batches" class="dropdown-menu border-0 shadow">
+                    <li class="nav-item"><a class="nav-link" href="{{ route('batches.index') }}">View All</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('batches.create') }}">Add New</a>
+                    </li>
+                </ul>
+              </li>
+              <!-- End batches -->
+
+               <!--  session -->
+               {{-- <li class="dropdown-submenu dropdown-hover">
+                <a id="sessions" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">{{ __('Session') }}</a>
+                <ul aria-labelledby="sessions" class="dropdown-menu border-0 shadow">
+                    <li class="nav-item"><a class="nav-link" href="{{ route('sessions.index') }}">View All</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('sessions.create') }}">Add New</a>
+                    </li>
+                </ul>
+              </li> --}}
+              <!-- End session -->
+
+               <!--  yearly session -->
+               <li class="dropdown-submenu dropdown-hover">
+                <a id="yearly_session" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">{{ __('Yearly Session') }}</a>
+                <ul aria-labelledby="yearly_session" class="dropdown-menu border-0 shadow">
+                    <li class="nav-item"><a class="nav-link" href="{{ route('yearly_sessions.index') }}">View All</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('yearly_sessions.create') }}">Add New</a>
+                    </li>
+                </ul>
+              </li>
+              <!-- End  yearly session -->
+
+              <!--  Section -->
+              {{-- <li class="dropdown-submenu dropdown-hover">
+                <a id="sections" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">{{ __('Sections') }}</a>
+                <ul aria-labelledby="sections" class="dropdown-menu border-0 shadow">
+                    <li class="nav-item"><a class="nav-link" href="{{ route('sections.index') }}">View All</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('sections.create') }}">Add New</a>
+                    </li>
+                </ul>
+              </li> --}}
+              <!-- End  Section -->
+
+              <!--  ranks -->
+              {{-- <li class="dropdown-submenu dropdown-hover">
+                <a id="ranks" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">{{ __('Ranks') }}</a>
+                <ul aria-labelledby="ranks" class="dropdown-menu border-0 shadow">
+                    <li class="nav-item"><a class="nav-link" href="{{ route('ranks.index') }}">View All</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('ranks.create') }}">Add New</a>
+                    </li>
+                </ul>
+              </li> --}}
+              <!-- End  ranks -->
+
+              <li class="dropdown-submenu dropdown-hover">
+                <a id="time_slots" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">{{ __('Time Slots') }}</a>
+                <ul aria-labelledby="time_slots" class="dropdown-menu border-0 shadow">
+                    <li class="nav-item"><a class="nav-link" href="{{ route('time_slots.index') }}">View All</a>
+                    </li>
+                </ul>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('day_wise_slots') }}">Day Wise Slot</a>
+              </li>
+
+              <!--  roles -->
+              {{-- <li class="nav-item"><a class="nav-link" href="{{ route('roles') }}">Roles</a>
+              </li> --}}
+              <!-- End  roles -->
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a id="teachers" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">{{ __('Teachers') }}</a>
+            <ul aria-labelledby="teachers" class="dropdown-menu border-0 shadow">
+                <li class="nav-item"><a class="nav-link" href="{{ route('teachers.index') }}">View All</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('teachers.create') }}">Add New</a>
+                </li>
+              <!--  Department -->
+              <li class="dropdown-submenu dropdown-hover">
+                <a id="assign_courses" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">{{ __('Workload') }}</a>
+                <ul aria-labelledby="assign_courses" class="dropdown-menu border-0 shadow">
+                    <li class="nav-item"><a class="nav-link" href="{{ route('assign_courses.index') }}">View All</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('assign_courses.create') }}">Add New</a>
+                    </li>
+                </ul>
+              </li>
+              <!-- End Department -->
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a id="students" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">{{ __('Students') }}</a>
+            <ul aria-labelledby="students" class="dropdown-menu border-0 shadow">
+                <li class="nav-item"><a class="nav-link" href="{{ route('students.index') }}">View All</a>
+                </li>
+            </ul>
+          </li>
+
+
+
+          <li class="nav-item dropdown">
+            <a id="course_offers" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">{{ __('Course Offers') }}</a>
+            <ul aria-labelledby="course_offers" class="dropdown-menu border-0 shadow">
+                <li class="nav-item"><a class="nav-link" href="{{ route('course_offers.index') }}">View All</a>
+                </li>
+            </ul>
+          </li>
+
+
+          @endif
+
+
+          @if (Auth::check())
+          <li class="nav-item dropdown">
+            <a id="view_routine" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">{{ __('View routine') }}</a>
+            <ul aria-labelledby="view_routine" class="dropdown-menu border-0 shadow">
+                <li class="dropdown-submenu dropdown-hover">
+                    <a id="routine_views" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">{{ __('View routine') }}</a>
+                    <ul aria-labelledby="routine_views" class="dropdown-menu border-0 shadow">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('teacher_search') }}">Teacher Wise</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('batch_search') }}">Batch Wise</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown-submenu  dropdown-hover">
+                    <a id="routine_list" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">{{ __('Routine List') }}</a>
+                    <ul aria-labelledby="routine_list" class="dropdown-menu border-0 shadow">
+                        @if(!empty($y_session))
+                            @foreach($y_session as $session)
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('routine_list',$session->id) }}">
+                                        {{ $session->session_name. '-' . $session->year}}
+                                    </a>
+                                </li>
+                            @endforeach
+                        @endif
+                    </ul>
+                </li>
+
+            </ul>
+        </li>
+            @if(Auth::user()->role == 'admin')
+          <li class="nav-item dropdown bg-danger">
+            <a id="full_routine" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">{{ __('Generate Routine') }}</a>
+              <ul aria-labelledby="full_routine" class="dropdown-menu border-0 shadow">
+                  @if(!empty($y_session))
+                      @foreach($y_session as $session)
+                          <li class="nav-item">
+                              <a class="nav-link" href="{{ route('full_routine',$session->id) }}">
+                                  {{ $session->session_name. '-' . $session->year}}
+                              </a>
+                          </li>
+                      @endforeach
+                  @endif
+              </ul>
+          </li>
+
+
+        @endif
+        @endif
+
+        </ul>
+
+
+      </div>
+    </div>
+  </nav>
+  <!-- /.navbar -->

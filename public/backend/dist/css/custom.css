@@ -1,0 +1,28 @@
+.container-fluid{
+    width: 90%;
+}
+.dropdown-menu li .nav-link{
+    color: #222 !important;
+}
+.logo{
+    font-size: 20px;
+    color: #fff;
+}
+
+.logo:hover{
+    transform: scale(1.01);
+    color: #fefefe;
+}
+@media (max-width: 768px) {
+    .logo span{
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    table {
+        width: 100%;
+        overflow-x: scroll;
+        display: block;
+    }
+}
