@@ -86,7 +86,7 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
 
     Route::post('class_slot_update', 'FullRoutineController@class_slot_update')->name('class_slot_update');
 
-    Route::post('teacher_wise_view', 'FullRoutineController@teacher_wise_view')->name('teacher_wise_view');
+    Route::post('teacher_wise_view', 'AlgorithmController@teacher_wise_view')->name('teacher_wise_view');
 
     Route::get('routine_list/{session}', 'FullRoutineController@routine_list')->name('routine_list');
 

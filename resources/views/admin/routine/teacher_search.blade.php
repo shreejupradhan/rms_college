@@ -78,7 +78,7 @@
                                 @foreach($slots as $k => $slot)
 
                                         @php $count = 0; @endphp
-                                        @if($slot->slug == 'SAT' || $slot->slug == 'FRI')
+
                                         <tr class="bg-light">
                                         <th>Day / Time</th>
                                         @foreach($day_wise_slots as $key => $timeslot)
@@ -113,8 +113,6 @@
                                             @endif
                                         @endforeach
                                         </tr>
-                                        @endif
-
 
                                     <tr>
                                         <td>
