@@ -15,10 +15,12 @@ class CreateYearlySessionsTable extends Migration
     {
         Schema::create('yearly_sessions', function (Blueprint $table) {
             $table->id();
-            $table->integer('session_id')->nullable()->foreign('session_id')->references('id')->on('sessions');
+            $table->unsignedInteger('session_id');
             $table->year('year')->nullable();
             $table->enum('is_active',['yes','no'])->default('yes');
             $table->timestamps();
+            $table->foreign('session_id')->references('id')->on('sessions')->onDelete('cascade');
+
         });
     }
 

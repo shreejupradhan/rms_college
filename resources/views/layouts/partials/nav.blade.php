@@ -105,17 +105,17 @@
               </li> --}}
               <!-- End session -->
 
-               <!--  yearly session -->
+               <!--  yearly semester -->
                <li class="dropdown-submenu dropdown-hover">
-                <a id="yearly_session" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">{{ __('Yearly Session') }}</a>
+                <a id="yearly_session" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">{{ __('Yearly Semester') }}</a>
                 <ul aria-labelledby="yearly_session" class="dropdown-menu border-0 shadow">
-                    <li class="nav-item"><a class="nav-link" href="{{ route('yearly_sessions.index') }}">View All</a>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('yearly_semester.index') }}">View All</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('yearly_sessions.create') }}">Add New</a>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('yearly_semester.create') }}">Add New</a>
                     </li>
                 </ul>
               </li>
-              <!-- End  yearly session -->
+              <!-- End  yearly semester -->
 
               <!--  Section -->
               {{-- <li class="dropdown-submenu dropdown-hover">

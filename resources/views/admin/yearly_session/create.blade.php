@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Yearly Session')
+@section('title', 'Yearly Semester')
 
 @section('stylesheets')
     <!-- DataTables -->
@@ -27,10 +27,10 @@
                                 </div>
                             @endif
                             <div class="mt-0 header-title mb-4">
-                                Yearly Session - Create
-                                <a href="{{ route('yearly_sessions.index') }}" class="btn btn-sm btn-primary float-right">Yearly Session List</a>
+                                Yearly Semester - Create
+                                <a href="{{ route('yearly_semester.index') }}" class="btn btn-sm btn-primary float-right">Yearly Semester List</a>
                             </div>
-                            {!! Form::open(['route' =>'yearly_sessions.store'])!!}
+                            {!! Form::open(['route' =>'yearly_semester.store'])!!}
 
                             <div class="row">
                                 <div class="col-md-12">

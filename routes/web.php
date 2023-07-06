@@ -32,7 +32,7 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
     Route::get('teachers/requests', 'TeacherController@requests')->name('teachers.requests');
     Route::resource('sessions', 'SessionController');
     Route::resource('shift_sessions', 'ShiftSessionController');
-    Route::resource('yearly_sessions', 'YearlySessionController');
+    Route::resource('yearly_semester', 'YearlySessionController');
     Route::resource('shifts', 'ShiftController')->middleware('auth_admin');
     Route::resource('rooms', 'RoomController')->middleware('auth_admin');
     Route::resource('departments', 'DepartmentController')->middleware('auth_admin');

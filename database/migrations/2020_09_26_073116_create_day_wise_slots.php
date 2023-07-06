@@ -15,10 +15,14 @@ class CreateDayWiseSlots extends Migration
     {
         Schema::create('day_wise_slots', function (Blueprint $table) {
             $table->id();
-            $table->integer('day_id')->nullable()->foreign('day_id')->references('id')->on('days');
-            $table->integer('time_slot_id')->nullable()->foreign('time_slot_id')->references('id')->on('time_slots');
+            $table->unsignedBigInteger('day_id');
+            $table->unsignedBigInteger('time_slot_id');
             $table->integer('class_slot')->nullable();
             $table->timestamps();
+            $table->foreign('day_id')->references('id')->on('days')->onDelete('cascade');
+            $table->foreign('time_slot_id')->references('id')->on('time_slots')->onDelete('cascade');
+
+
         });
     }
 

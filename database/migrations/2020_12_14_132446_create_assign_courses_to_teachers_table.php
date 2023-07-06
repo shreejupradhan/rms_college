@@ -15,11 +15,13 @@ class CreateAssignCoursesToTeachersTable extends Migration {
 		Schema::create('assign_courses_to_teachers', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('session_id')->nullable()->foreign('session_id')->references('id')->on('yearly_sessions')->unsigned();
-			$table->integer('teacher_id')->nullable()->foreign('teacher_id')->references('id')->on('teachers')->unsigned();
+			$table->unsignedBigInteger('session_id');
+			$table->unsignedInteger('teacher_id');
             $table->string('courses', 191)->nullable();
 			$table->timestamps();
             $table->enum('is_active',['yes','no'])->default('yes');
+            $table->foreign('session_id')->references('id')->on('yearly_sessions')->onDelete('cascade');
+            $table->foreign('teacher_id')->references('id')->on('teachers')->onDelete('cascade');
 		});
 	}
 

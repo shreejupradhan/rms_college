@@ -15,12 +15,15 @@ class CreateSectionStudents extends Migration
     {
         Schema::create('section_students', function (Blueprint $table) {
             $table->id();
-            $table->integer('student_id')->nullable()->foreign('student_id')->references('id')->on('students');
-            $table->integer('section_id')->nullable()->foreign('section_id')->references('id')->on('sections');
+            $table->unsignedBigInteger('student_id');
+            $table->unsignedInteger('section_id');
             $table->enum('section_type',['lab','theory'])->nullable();
             $table->enum('is_active',['yes','no'])->default('yes');
             $table->integer('students')->nullable();
             $table->timestamps();
+            $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
+            $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade');
+
         });
     }
 

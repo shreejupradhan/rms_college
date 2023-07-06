@@ -16,10 +16,13 @@ class CreateBatchTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('batch_no')->nullable()->comment('12,13');
-            $table->integer('department_id')->nullable()->foreign('department_id')->references('id')->on('departments');
-            $table->integer('shift_id')->nullable()->foreign('shift_id')->references('id')->on('shifts');
+            $table->unsignedInteger('department_id');
+            $table->unsignedInteger('shift_id');
             $table->enum('is_active',['yes','no'])->default('yes');
 			$table->timestamps();
+            $table->foreign('department_id')->references('id')->on('departments')->onDelete('cascade');
+            $table->foreign('shift_id')->references('id')->on('shifts')->onDelete('cascade');
+
 		});
 	}
 

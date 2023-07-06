@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Yearly Session')
+@section('title', 'Yearly Semester')
 
 @section('stylesheets')
     <!-- DataTables -->
@@ -37,8 +37,8 @@
 
 
                             <div class="mt-0 header-title mb-4">
-                                Yearly Session - List
-                                <a href="{{ route('yearly_sessions.create') }}" class="btn btn-sm btn-primary float-right">Add New</a>
+                                Yearly Semester - List
+                                <a href="{{ route('yearly_semester.create') }}" class="btn btn-sm btn-primary float-right">Add New</a>
                             </div>
 
                             <table id="datatable-buttons"
@@ -47,7 +47,7 @@
                                 <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Session</th>
+                                    <th>Semester</th>
                                     <th>Years</th>
                                     <th>Status</th>
                                     <th>Action</th>
@@ -72,7 +72,7 @@
                                                     <h5>Do you want to {{ $yearly_session->is_active == 'yes' ? 'Deactive' : 'Activate' }} this ?</h5>
                                                 </div>
                                                 <div class="modal-body">
-                                                    {!! Form::open([ 'route' => ['yearly_sessions.update' , $yearly_session->id], 'method' => 'put', 'style' => 'display:inline']) !!}
+                                                    {!! Form::open([ 'route' => ['yearly_semester.update' , $yearly_session->id], 'method' => 'put', 'style' => 'display:inline']) !!}
 {{--                                                    <input type="hidden" name="is_active" value="{{ $yearly_session->is_active == 'yes' ? 'no' : 'yes' }}">--}}
                                                     {!! Form::submit('Yes', ['class' => 'btn btn-lg btn-danger']) !!}
                                                     {!! Form::close() !!}

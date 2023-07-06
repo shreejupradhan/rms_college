@@ -45,7 +45,7 @@ class YearlySessionController extends MasterController
     {
         YearlySession::where('year', '=', $request->year)->update(array('is_active' => $request->is_active));
         Session::flash('message', 'Status Updated successfully');
-        return redirect()->route('yearly_sessions.index');
+        return redirect()->route('yearly_semester.index');
     }
 
     /**
@@ -82,12 +82,12 @@ class YearlySessionController extends MasterController
                 }
             }
             YearlySession::insert($data);
-            Session::flash('error', 'Yearly Sessions Assigned successfully');
-            return redirect()->route('yearly_sessions.index');
+            Session::flash('error', 'Yearly Semester Assigned successfully');
+            return redirect()->route('yearly_semester.index');
         }
         else{
             Session::flash('error', 'This year already assigned for sessions');
-            return redirect()->route('yearly_sessions.create');
+            return redirect()->route('yearly_semester.create');
         }
 
 
@@ -156,20 +156,20 @@ class YearlySessionController extends MasterController
      * @param  \App\Models\YearlySession  $yearlySession
      * @return \Illuminate\Http\Response
      */
-    public function update(YearlySession $yearlySession)
+    public function update(YearlySession $yearlySemester)
     {
 
-        if ($yearlySession->is_active == 'yes'){
+        if ($yearlySemester->is_active == 'yes'){
             $status = 'no';
         }
         else {
             $status = 'yes';
         }
 
-        $yearlySession->is_active = $status;
-        $yearlySession->save();
+        $yearlySemester->is_active = $status;
+        $yearlySemester->save();
         Session::flash('error', 'Status changed successfully!!');
-        return redirect()->route('yearly_sessions.index');
+        return redirect()->route('yearly_semester.index');
     }
 
     /**
@@ -185,7 +185,7 @@ class YearlySessionController extends MasterController
 //        $shift_session = ShiftSession::find($shiftSession->id);
 //        $shift_session->delete();
         YearlySession::where('year',$year)->delete();
-        Session::flash('delete-message', 'Yearly Session deleted successfully');
-        return redirect()->route('yearly_sessions.index');
+        Session::flash('delete-message', 'Yearly Semester deleted successfully');
+        return redirect()->route('yearly_semester.index');
     }
 }
