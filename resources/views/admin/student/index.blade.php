@@ -18,13 +18,15 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="mt-0 header-title mb-4">
-                                Batch wise Student - List
-                                @foreach($shifts as $shift)
-
-                                <a href="{{ route('students_create', $shift->id) }}" class="btn btn-sm btn-primary float-right ml-1">Add Students {{ $shift->shift_name }} Batch </a>
-
-                                @endforeach
+                                Batch wise Student - Active Semester
+                               
                             </div>
+                            <div style="margin-bottom: 6rem;"> @foreach($shifts as $shift)
+
+<a href="{{ route('students_create', $shift->id) }}" class="btn btn-sm btn-primary float-right ml-1">Add {{ $shift->shift_name }} Batch </a>
+
+@endforeach</div>
+                           
                             @if (Session::has('message'))
                                 <div class="alert-dismissable alert alert-success">
                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x

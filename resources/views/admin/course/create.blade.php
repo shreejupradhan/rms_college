@@ -72,7 +72,7 @@
                                         {!! Form::label('Course Type') !!}
                                     </div>
                                     <div class="col-md-10">
-                                        {!! Form::select('course_type', [0=> 'Theory',1 => 'Sessional'], null ,['class'=> 'form-control']) !!}
+                                        {!! Form::select('course_type', [0=> 'Theory',1 => 'Practical'], null ,['class'=> 'form-control']) !!}
                                     </div>
                                 </div>
 

@@ -46,7 +46,7 @@ class ShiftController extends MasterController
 
         $shift = new Shift();
         $shift->shift_name = $request->shift_name;
-        $shift->slug = strtoupper(substr($shift->shift_name, 0, 1));
+        $shift->slug = $request->shift_name;
         $shift->save();
 
         Session::flash('message', 'Shift created successfully');
@@ -93,7 +93,7 @@ class ShiftController extends MasterController
             ]);
 
         $shift->shift_name = $request->shift_name;
-        $shift->slug = strtoupper(substr($shift->shift_name, 0, 1));
+        $shift->slug = $request->shift_name;
         $shift->is_active = $request->is_active;
         $shift->save();
 
